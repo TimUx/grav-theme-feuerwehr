@@ -2,63 +2,53 @@
 
 ![Feuerwehr](thumbnail.jpg)
 
-Custom [Grav](https://getgrav.org) Theme für die Freiwillige Feuerwehr Willingshausen.
+Custom-[Grav](https://getgrav.org)-Theme für die Freiwillige Feuerwehr Willingshausen.
+
+> **Hinweis:** Das Theme ist derzeit **nicht** im offiziellen Grav-Repository gelistet. Eine Installation über GPM (`bin/gpm install`) oder den Admin-Theme-Browser ist daher **noch nicht möglich**. Bitte manuell über GitHub installieren (siehe unten).
 
 # Installation
 
-Installing the Feuerwehr theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
+Voraussetzung: [Grav](https://github.com/getgrav/grav) `>= 1.7.0`.
 
-## GPM Installation (Preferred)
+## Manuelle Installation (aktuell einzige Möglichkeit)
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](https://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line). From the root of your Grav install type:
+1. Das Repository als ZIP von [GitHub](https://github.com/TimUx/grav-theme-feuerwehr) herunterladen (oder klonen).
+2. Den Inhalt nach `/your/site/grav/user/themes/` entpacken.
+3. Den Ordner in `feuerwehr` umbenennen, falls nötig.
 
-```
-bin/gpm install feuerwehr
-```
-
-This will install the Feuerwehr theme into your `/user/themes` directory within Grav. Its files can be found under `/your/site/grav/user/themes/feuerwehr`.
-
-> Note: GPM installation is only available after the theme has been published to the Grav repository.
-
-## Manual Installation
-
-To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `feuerwehr`. You can find these files on [GitHub](https://github.com/TimUx/grav-theme-feuerwehr).
-
-You should now have all the theme files under
+Die Theme-Dateien liegen anschließend unter:
 
 ```
 /your/site/grav/user/themes/feuerwehr
 ```
 
-> NOTE: This theme is a modular component for Grav which requires [Grav](https://github.com/getgrav/grav) `>= 1.7.0`.
+Optional kann beim manuellen Entpacken der Inhalt von `_demo/` nach `user/` übernommen werden (Beispielseiten für News, Footer und Sidebar).
 
-### Fonts & Attribution
+### Schriften & Attribution
 
-* **Oswald** – SIL Open Font License 1.1 (see `fonts/OFL-Oswald.txt`)
-* **Font Awesome 6** (Subset) – lokal unter `fonts/fontawesome/` / `css/fontawesome-subset.css`; [Font Awesome Free License](https://fontawesome.com/license/free)
+* **Oswald** – SIL Open Font License 1.1 (siehe `fonts/OFL-Oswald.txt`)
+* **Font Awesome 6** (Subset) – lokal unter `fonts/fontawesome/` bzw. `css/fontawesome-subset.css`; [Font Awesome Free License](https://fontawesome.com/license/free)
 
-# Updating
+# Aktualisieren
 
-## Manual Update
+Da GPM noch nicht verfügbar ist, erfolgt das Update manuell:
 
-Manually updating Feuerwehr is pretty simple. Here is what you will need to do to get this done:
+1. Den Ordner `user/themes/feuerwehr` löschen (bzw. vorher sichern).
+2. Die neue Version von [GitHub](https://github.com/TimUx/grav-theme-feuerwehr) herunterladen.
+3. Nach `user/themes/` entpacken und den Ordner `feuerwehr` nennen.
+4. Cache leeren: im Grav-Root `bin/grav clear-cache` ausführen.
 
-* Delete the `your/site/user/themes/feuerwehr` directory.
-* Download the new version of the Feuerwehr theme from [GitHub](https://github.com/TimUx/grav-theme-feuerwehr).
-* Unzip the zip file in `your/site/user/themes` and rename the resulting folder to `feuerwehr`.
-* Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
+> **Hinweis:** Änderungen an Dateien im Theme-Ordner gehen dabei verloren. Anpassungen in `user/config/themes/` bleiben erhalten.
 
-> Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/themes`) will remain intact.
-
-## Features
+# Funktionen
 
 * Theme für Feuerwehr-Websites (FFW Willingshausen)
-* Responsive Layout mit Burger-Navigation
-* Blog-Ansicht mit Pagination-Unterstützung
+* Responsives Layout mit Burger-Navigation
+* Blog-Ansicht mit Pagination
 * Einsatzbericht-Template mit strukturierten Feldern
 * Zweispalten-Seitenlayout (benötigt Shortcode Core)
 * Sidebar mit Suche und Social-Links (Facebook, Instagram, WhatsApp, E-Mail)
-* Lokale Oswald-Schriftart sowie lokales Font-Awesome-Subset (nur genutzte Icons)
+* Lokale Oswald-Schrift sowie lokales Font-Awesome-Subset
 * Fehlerseite (`error`) im Theme-Look
 * Optionaler Demo-Inhalt unter `_demo/`
 
@@ -69,23 +59,23 @@ Manually updating Feuerwehr is pretty simple. Here is what you will need to do t
 * [Archives](https://github.com/getgrav/grav-plugin-archives) – Archiv in der Sidebar
 * [PhotoSwipe](https://github.com/getgrav/grav-plugin-photoswipe) – Bildergalerien
 * [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) – Zweispalten-Layout (`page2c`)
-* Likes-Plugin (falls verwendet) – Like-Button auf Posts/Einsatzberichten
+* Likes-Plugin (falls verwendet) – Like-Button auf Beiträgen/Einsatzberichten
 
-### Supported Page Templates
+### Unterstützte Seitentemplates
 
-* Default view template
-* Blog view template
-* Post / Blog item view template
-* Form view template
-* Page (single column) view template
-* Page2c (two column) view template
-* Einsatzbericht view template
-* Error view template
-* SimpleSearch results view template
+* Default
+* Blog
+* Post (Blog-Beitrag)
+* Formular
+* Page (einspaltig)
+* Page2c (zweispalig)
+* Einsatzbericht
+* Error
+* SimpleSearch-Ergebnisse
 
-# Configuration
+# Konfiguration
 
-Default configuration shipped with the theme (`feuerwehr.yaml`):
+Standardwerte in `feuerwehr.yaml`:
 
 ```yaml
 enabled: true
@@ -101,7 +91,7 @@ social:
   email: 'email@feuerwehr-willingshausen.de'
 ```
 
-To customize these options, copy `feuerwehr.yaml` to your `user/config/themes/` folder and edit there. You can also configure the theme via the Administration Panel.
+Zum Anpassen `feuerwehr.yaml` nach `user/config/themes/` kopieren und dort bearbeiten – oder die Optionen im Administrationspanel nutzen.
 
 # Performance (Site/Server)
 
@@ -120,16 +110,13 @@ images:
   cache: true
 ```
 
-Zusätzlich am Webserver Gzip/Brotli und Cache-Header für `user/themes/feuerwehr/`-Assets aktivieren.
+Zusätzlich am Webserver Gzip/Brotli und Cache-Header für Assets unter `user/themes/feuerwehr/` aktivieren.
 
-# Setup
+# Theme aktivieren
 
-If you want to set Feuerwehr as the default theme, you can do so by following these steps:
+1. Nach `/your/site/grav/user/config` wechseln.
+2. Die Datei `system.yaml` öffnen.
+3. `theme:` auf `theme: feuerwehr` setzen.
+4. Speichern und Cache leeren: `bin/grav clear-cache`.
 
-* Navigate to `/your/site/grav/user/config`.
-* Open the **system.yaml** file.
-* Change the `theme:` setting to `theme: feuerwehr`.
-* Save your changes.
-* Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
-
-Once this is done, you should be able to see the new theme on the frontend.
+Danach erscheint das Theme im Frontend.
