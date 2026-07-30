@@ -141,6 +141,10 @@ img, video, iframe, pre, table {
 .site-header .logo-left,
 .site-header .wappen-right {
     height: 100px;
+    width: auto;
+    max-width: none;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .site-header .header-title {
@@ -1152,6 +1156,9 @@ img, video, iframe, pre, table {
     .site-header .wappen-right {
         height: 60px;
         width: auto;
+        max-width: none;
+        flex-shrink: 0;
+        object-fit: contain;
     }
 
     .site-header .header-title,

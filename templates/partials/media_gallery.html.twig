@@ -1,11 +1,9 @@
-{# Soft-guarded PhotoSwipe gallery. Expects optional: gallery_id, thumb_w, thumb_h #}
+{# Media gallery with PhotoSwipe. Expects optional: gallery_id, thumb_w, thumb_h #}
 {% set gallery_id = gallery_id|default('photoswipe-gallery-id') %}
 {% set thumb_w = thumb_w|default(200) %}
 {% set thumb_h = thumb_h|default(300) %}
 {% if page.media.images|length > 0 %}
-  {% if config.plugins.photoswipe.enabled|default(false) %}
-    {{ photoswipe(gallery_id, 'a') }}
-  {% endif %}
+  {{ photoswipe(gallery_id, 'a') }}
   <div id="{{ gallery_id }}">
      {% for item in page.media.images %}
          <a href="{{ item.url|e }}" class="gallery-item" data-size="{{ item.width ~ 'x' ~ item.height }}">

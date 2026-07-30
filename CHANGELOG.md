@@ -1,3 +1,10 @@
+# v1.0.2
+## 07/30/2026
+
+1. [](#bugfix)
+    * Header-Logos nicht mehr verzerrt (`width: auto`, HTML-Größenattribute entfernt)
+    * PhotoSwipe-Lightbox für Beitragsgalerien wieder aktiv (Soft-Guard entfernt)
+
 # v1.0.1
 ## 07/30/2026
 
