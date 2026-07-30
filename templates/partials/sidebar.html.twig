@@ -1,0 +1,44 @@
+<aside class="sidebar">
+    {% if theme.sidebar.show_search|default(true) %}
+    <div class="sidebar-search">
+        <h2>{{ 'THEME_FEUERWEHR.SEARCH'|t }}</h2>
+        {% include 'partials/simplesearch_searchbox.html.twig' ignore missing %}
+    </div>
+    {% endif %}
+
+    {% set social = theme.social|default({}) %}
+    {% if theme.sidebar.show_social|default(true) and (social.facebook or social.instagram or social.whatsapp or social.email) %}
+    <div class="sidebar-section social-section">
+        <h2>{{ 'THEME_FEUERWEHR.SOCIAL'|t }}</h2>
+        <div class="social-links">
+          {% if social.facebook %}
+          <a href="{{ social.facebook|e }}" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if social.instagram %}
+          <a href="{{ social.instagram|e }}" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if social.whatsapp %}
+          <a href="{{ social.whatsapp|e }}" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          {% endif %}
+          {% if social.email %}
+          <a href="mailto:{{ social.email|e }}" aria-label="E-Mail"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% set sidebar_parent = page.find('/sidebar') %}
+    {% if sidebar_parent %}
+        {% for sidebar_item in sidebar_parent.children.published %}
+        <div class="sidebar-section">
+            <h2>{{ sidebar_item.title }}</h2>
+            {{ sidebar_item.content|raw }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="sidebar-section">
+        <h2>{{ 'THEME_FEUERWEHR.ARCHIVE'|t }}</h2>
+       {% include 'partials/archives.html.twig' ignore missing %}
+    </div>
+</aside>

@@ -1,0 +1,4 @@
+title: Fehlerseite
+'@extends':
+  type: default
+  context: blueprints://pages

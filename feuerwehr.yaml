@@ -1,0 +1,12 @@
+enabled: true
+default_lang: de
+posts:
+  read_more_label: 'Weiterlesen'
+sidebar:
+  show_search: true
+  show_social: true
+social:
+  facebook: 'https://www.facebook.com/ffw.willingshausen'
+  instagram: 'https://www.instagram.com/ffw.willingshausen'
+  whatsapp: 'https://whatsapp.com/channel/0029VaaGvZI17EmqYdx03Z2V'
+  email: 'email@feuerwehr-willingshausen.de'

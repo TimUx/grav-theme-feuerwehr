@@ -1,0 +1,25 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+<div class="fullwidth-content">
+
+    {# Titel und Divider wie im page.html.twig, um die Konsistenz zu wahren #}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+        <div class="post-divider"></div>
+    </div>
+    
+    <article class="post">
+        <div class="post-content">
+            {# 1. Inhalt der Seite anzeigen (z.B. Einleitungstext aus der form.md) #}
+            {{ page.content|raw }}
+
+            {# 2. Der WICHTIGE Schritt: Das Formular-Partial einbinden #}
+            {# Das Formular-Plugin stellt dieses Partial bereit, das die Felder rendert #}
+            {% include "forms/form.html.twig" %}
+            
+        </div>
+    </article>
+</div>
+{% endblock %}

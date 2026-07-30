@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<div class="fullwidth-content">
+
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+        <div class="post-divider"></div>
+    </div>
+
+    <div class="page-grid">
+        <div class="page-left">
+            <article class="post">
+                <div class="post-content">
+                    {{ page.content|raw }}
+                </div>
+            </article>
+        </div>
+
+        {% if shortcode.section %}
+        <div class="page-right">
+            {% for name, content in shortcode.section %}
+                {% if name != 'left' %}
+                <article class="post section-{{ name }}">
+                    <div class="post-content">
+                        {{ content|raw }}
+                    </div>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

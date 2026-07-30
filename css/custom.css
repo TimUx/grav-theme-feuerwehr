@@ -1,0 +1,1677 @@
+/* ===================================
+   Global Styles
+=================================== */
+
+/* ========== LOCAL FONTS ========== */
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Variable.woff2') format('woff2');
+    font-weight: 200 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ========== RESET & BASE ========== */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    /* Alle Elemente erben das korrigierte Box-Modell */
+    box-sizing: inherit;
+}
+
+/* ===================================
+   Markdown-Überschriften H1 - H6 (angepasst und verkleinert)
+=================================== */
+
+/* Allgemeine Basis-Stile für alle Überschriften */
+h1, h2, h3, h4, h5, h6 {
+    /* Schriftart und Farbe bleiben konsistent mit dem Theme */
+    font-family: 'Arial', sans-serif; 
+    color: #222; 
+    
+    /* Straffere Zeilenhöhe für Überschriften */
+    line-height: 1.2; 
+    
+    /* Fokus auf klaren, großzügigen Abstand */
+    margin-top: 1.8rem;
+    margin-bottom: 0.6rem;
+    
+    /* SICHERSTELLEN: KEINE Linien, Border oder Padding */
+    padding: 0;
+    border: none;
+}
+
+/* H1 - Der Haupttitel (Main Heading) */
+h1 {
+    font-size: 1.6rem; /* Reduziert (vorher 2.5rem) */
+    font-weight: 800; 
+}
+
+/* H2 - Hauptabschnitte (Major Sections) */
+h2 {
+    font-size: 1.4rem; /* Reduziert (vorher 2rem) */
+    font-weight: 700;
+}
+
+/* H3 - Unterabschnitte (Sub-Sections) */
+h3 {
+    font-size: 1.2rem; /* Reduziert (vorher 1.5rem) */
+    font-weight: 700;
+}
+
+/* H4 - Kleinere Unterteilungen (Minor Sub-Headings) */
+h4 {
+    font-size: 1.0rem; /* Etwas größer als Fließtext, ca. 18.4px */
+    font-weight: 600; 
+}
+
+/* H5 - Detail-Titel (Detail/Sidebar Headings) */
+h5 {
+    font-size: 0.8rem; /* Entspricht der Grundtextgröße (ca. 16px) */
+    font-weight: 600; 
+    color: #444; /* Etwas dunkleres Grau für die geringere Wichtigkeit */
+    font-style: italic; /* Unterscheidung durch Stil anstatt Größe */
+}
+
+/* H6 - Geringste Wichtigkeit (Footnotes/Labels) */
+h6 {
+    font-size: 0.6rem; /* Knapp kleiner als Fließtext */
+    font-weight: 500;
+    color: #666; /* Dezentes Grau */
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+}
+
+img, video, iframe, pre, table {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ========== LAYOUT ========== */
+.page-wrapper {
+    flex: 1 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1250px;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../images/background.jpg');
+    background-image: image-set(url('../images/background.webp') type('image/webp'), url('../images/background.jpg') type('image/jpeg'));
+}
+
+/* ===================================
+   Header
+=================================== */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    margin: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-width: 100%;
+}
+
+.site-header .logo-left,
+.site-header .wappen-right {
+    height: 100px;
+}
+
+.site-header .header-title {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.site-header h1 {
+    font-family: Impact, Oswald, sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    font-style: italic;
+    font-weight: 900;
+}
+
+/* ===================================
+   Navigation (Desktop)
+=================================== */
+
+/* ========== NAVIGATION ========== */
+.main-nav {
+    display: flex;
+    justify-content: flex-start;
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    border: 1px solid #A04000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    min-width: 100px;
+}
+
+.main-nav li {
+    flex-grow: 0;
+    min-width: 100px;
+    border-right: 1px solid #A04000;
+    position: relative;
+    display: inline-block;
+}
+
+.main-nav li:first-child a {
+    border-radius: 14px 0 0 14px;
+}
+
+.main-nav a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav li:hover > a {
+    background: rgba(255,196,0,0.7);
+    color: #A04000;
+}
+
+.main-nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    background: rgba(255,196,0,0.9);
+    border: 1px solid #A04000;
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    z-index: 99;
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: max-content;
+    width: auto;
+}
+
+.main-nav li:hover > ul {
+    display: block;
+}
+
+.main-nav ul ul li {
+    border-right: none;
+    border-top: 1px solid #A04000;
+    width: 100%;
+}
+
+.main-nav ul ul li:first-child a {
+    border-radius: 0;
+}
+
+.main-nav ul ul li:last-child a {
+    border-radius: 0 0 14px 14px;
+}
+
+
+.main-nav ul ul a {
+    color: #A04000;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.main-nav ul ul a:hover {
+    background: #D65E1E;
+    color: #F5F5F5;
+}
+
+/* Burger-Menü standardmäßig ausblenden */
+.burger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    line-height: 1;
+    font-family: inherit;
+}
+
+.burger:focus-visible,
+.main-nav a:focus-visible,
+.like-button:focus-visible,
+.read-more-btn:focus-visible,
+.footer-social a:focus-visible,
+.social-links a:focus-visible {
+    outline: 2px solid #A04000;
+    outline-offset: 2px;
+}
+
+/* Submenü-Indikator standardmäßig ausblenden */
+.submenu-toggle {
+    display: none;
+}
+
+/* ===================================
+   Content
+=================================== */
+
+.main-content {
+    min-width: 0; 
+}
+
+.content-box {
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    max-width: 100%; 
+    margin: 0;
+}
+
+
+/* ========== CONTENT / POSTS ========== */
+.post-header-with-likes {
+    display: flex;             /* Aktiviert Flexbox für die Ausrichtung */
+    justify-content: space-between; /* Schiebt Titel und Button an die Ränder */
+    align-items: center;       /* Zentriert beide Elemente vertikal */
+}
+
+/* Optional: Um sicherzustellen, dass der h2-Titel nicht umbricht, wenn der Titel sehr lang ist */
+.post-header-with-likes h2 {
+    margin: 0;
+    margin-right: 20px; /* Kleiner Abstand zum Button */
+    max-width: 80%; /* Hält den Titel auf einer vernünftigen Breite */
+}
+
+/* Optional: Grundstil für den Button, falls nicht vom Plugin bereitgestellt */
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+    .posts-grid .post img {
+        width: 150px;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+.post {
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+
+.post > * {
+    min-width: 0;
+}
+
+.post img {
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.post-content {
+    flex: 1 1 auto;         /* wachsen und schrumpfen erlauben */
+    min-width: 0;           /* <- CRITICAL für Flexbox */
+    overflow-wrap: break-word; /* Standard für Wortumbruch */
+}
+
+.post-content iframe,
+.post-content table {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post h2 {
+    font-family: Oswald, Arial, sans-serif;
+    margin: 0 0 8px;
+}
+
+.post-divider {
+    height: 2px;
+    background-color: #A04000;
+    margin: 4px 0;
+}
+
+.post-date {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.post-content p {
+    display: block;
+    max-width: 100%;
+    white-space: normal;        /* Umbruch erlauben */
+    overflow-wrap: break-word;  /* bricht sehr lange Wörter */
+    word-break: normal;         /* Standardverhalten: bricht nur an Leerzeichen/Bindestrichen */
+    hyphens: none;              /* Stellt sicher, dass keine Silbentrennung stattfindet */
+}
+
+/* ===================================
+   PAGINATION STYLING (Angepasst an main-nav)
+=================================== */
+
+/* 1. Basis-Container für die Zentrierung */
+.pagination {
+    list-style: none;
+    align-items: center; 
+    display: flex;
+    justify-content: center; /* Zentriert die Paginierungslinks */
+    flex-wrap: wrap; 
+    gap: 5px; 
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    margin: 0;
+    padding: 15px;
+}
+
+.pagination li {
+    display: inline;
+    padding: 2px;
+    width: 42px;
+    text-align: center;
+}
+
+/* 2. Standard-Link-Styling (Farben aus .main-nav a) */
+.pagination a,
+.pagination .gap span {
+    display: block;
+    padding: 4px; 
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px; 
+    color: #000;                 
+    background-color: transparent; 
+    border: 1px solid #A04000;   
+    transition: all 0.2s ease;
+    align-items: center;
+}
+
+/* Die Lücken-Punkte sollen keinen Rahmen haben */
+.pagination .gap span {
+    border: none;
+    color: #444;
+    padding: 4px;
+}
+
+
+/* 3. Hover-Effekt (Farben aus .main-nav a:hover) */
+.pagination a:hover,
+.pagination a:focus {
+    color: #A04000;              /* Textfarbe beim Hover */
+    background-color: #FFC400;   /* Hintergrundfarbe (Basis von rgba(255,196,0,0.7)) */
+    border-color: #FFC400;       /* Rahmenfarbe anpassen */
+    cursor: pointer;
+}
+
+/* 4. Aktive Seite (Farben aus .read-more-btn oder .main-nav ul ul a:hover) */
+.pagination .active span {
+    pointer-events: none; /* Deaktiviert Klick auf die aktuelle Seite */
+    
+    color: #F5F5F5 !important;            /* Textfarbe: Off-White */
+    background-color: #D65E1E !important; /* Hintergrund: Hauptakzentfarbe */
+    border-color: #D65E1E !important;   /* Rahmenfarbe anpassen */
+    font-weight: bold;
+}
+
+.page-header {
+    margin-bottom: 8px;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-family: Oswald, Arial, sans-serif;
+}
+
+/* Grid für Desktop */
+.page-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* linke 2/3, rechte 1/3 */
+    gap: 20px;
+}
+
+.page-left,
+.page-right {
+    min-width: 0;
+}
+
+.page-right .post {
+    background: rgba(255,255,255,0.9);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #D65E1E;
+    color: #F5F5F5;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.read-more-btn:hover {
+    background-color: #FFC400;
+    color: #A04000;
+}
+
+/* ===================================
+   Fullwidth Content
+=================================== */
+.fullwidth-content {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===================================
+   Sidebar
+=================================== */
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #A04000;
+}
+
+.sidebar-section {
+    border-top: 2px solid #345B2F;
+    padding: 15px 0;
+}
+
+.sidebar h2 {
+    font-family: Oswald, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar img {
+    max-width:100%;
+    height: auto;
+}
+
+
+/* ========== FOOTER & SOCIAL ========== */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin: 5px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #D65E1E;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* ===================================
+   Footer
+=================================== */
+.site-footer {
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    text-align: center;
+    font-size: 0.9em;
+    padding: 10px 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+}
+
+.site-footer a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.site-footer a:hover {
+    color: #D65E1E;
+}
+
+.footer-social a {
+    font-size: 1rem;
+    color: #000;
+    margin-left: 5px;
+}
+
+.footer-social a:hover {
+    color: #D65E1E;
+}
+
+
+/* Blendet das Suchfeld auf Desktop aus */
+.mobile-search-toggle {
+    display: none;
+}
+
+/* ===================================
+   Form Styles (Hinzugefügt)
+=================================== */
+
+/* Der Hauptcontainer des Formulars, wenn es von Twig generiert wird */
+.grav-form {
+    /* 1. Hintergrund/Schatten/Radius ENTFERNEN */
+    background: none; 
+    border-radius: 14px; 
+    box-shadow: none; 
+    padding: 15px 0 0 0; /* Nur oben und unten etwas Platz */
+    margin-top: 20px; 
+}
+
+/* Einzelne Formularfelder (Containers) */
+.grav-form .form-field {
+    margin-bottom: 20px; /* Behält einen klaren Abstand zwischen den Feldern */
+}
+
+/* Beschriftungen (Labels) */
+.grav-form .form-label label {
+    display: block;
+    font-weight: bold;
+    color: #A04000; 
+    margin-bottom: 5px; /* Etwas reduzieren, um Label enger an das Feld zu binden */
+    font-size: 1.1em;
+}
+
+/* Eingabefelder (Text, Email, Textarea) und Select-Elemente */
+.grav-form input[type="text"],
+.grav-form input[type="email"],
+.grav-form input[type="tel"],
+.grav-form input[type="password"],
+.grav-form textarea,
+.grav-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #A04000; /* Rand in Akzentfarbe */
+    border-radius: 8px; /* Leicht abgerundete Ecken */
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #222;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Sicherstellen, dass Padding nicht die Breite überschreitet */
+}
+
+/* Hover/Focus Effekt für Eingabefelder */
+.grav-form input:focus,
+.grav-form textarea:focus,
+.grav-form select:focus {
+    border-color: #D65E1E; /* Stärkere Akzentfarbe bei Fokus */
+    box-shadow: 0 0 8px rgba(214, 94, 30, 0.4); /* Leichter oranger Glow */
+    outline: none;
+}
+
+/* Textarea (für größere Eingabefelder) */
+.grav-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Hilfetexte unter dem Feld */
+.grav-form .form-data-label {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+    display: block;
+}
+
+
+/* ===================================
+   Form Buttons (Senden-Button)
+=================================== */
+
+/* Container für Buttons */
+.grav-form .buttons {
+    margin-top: 30px;
+    text-align: right; /* Button rechtsbündig ausrichten */
+}
+
+/* Der eigentliche Senden-Button */
+.grav-form input[type="submit"],
+.grav-form button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #D65E1E; /* Haupt-Akzentfarbe */
+    color: #F5F5F5;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px; /* Leicht abgerundete Ecken */
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.grav-form input[type="submit"]:hover,
+.grav-form button[type="submit"]:hover {
+    background-color: #FFC400; /* Nav-Hover-Farbe */
+    color: #A04000;
+}
+
+/* ===================================
+   Formular-Meldungen (Erfolg / Fehler)
+=================================== */
+
+.grav-form .form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.grav-form .form-message.success {
+    background-color: #345B2F; /* Grünton für Erfolg */
+    color: #fff;
+    border: 1px solid #345B2F;
+}
+
+.grav-form .form-message.error {
+    background-color: #D65E1E; /* Akzentfarbe für Fehler */
+    color: #fff;
+    border: 1px solid #D65E1E;
+}
+
+/* ===================================
+   Simple Search Results Styling
+   (Angepasst an den Blog-Post-Stil)
+=================================== */
+
+/* Allgemeine Container für Suchergebnisse */
+.content-box.simplesearch {
+    /* Stellt sicher, dass die Box den 'content-box'-Stil bekommt (Hintergrund, Rahmen, Schatten) */
+    padding: 20px;
+}
+
+/* Such-Header (Überschrift) */
+.simplesearch h1.search-header {
+    /* Passt die Größe an H1/H2 des Themes an */
+    font-size: 1.6rem; 
+    font-weight: 800;
+    margin-top: 0; /* Entfernt oberen Abstand am Seitenbeginn */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #A04000; /* Trennlinie wie bei Post-Elementen */
+    line-height: 1.2;
+}
+
+/* Such-Zusammenfassung (z.B. "X Ergebnisse gefunden für...") */
+.simplesearch p.search-summary {
+    font-style: italic;
+    color: #444;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+/* Container für das Suchformular */
+.simplesearch-form-container {
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+/* Stellt sicher, dass die Titel der Suchergebnisse wie normale Post-Titel aussehen und reagieren */
+.search-result-post h2 a {
+    color: #000; /* Standard-Farbe (Schwarz) */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.search-result-post h2 a:hover {
+    color: #A04000; /* Hover-Farbe (Orange/Braun) */
+    text-decoration: underline;
+}
+
+/* ===================================
+   Events Plugin Anpassungen (im Stil des Blogs)
+=================================== */
+    .event-article,
+    .event-separator {
+        margin: 10px 0px !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .event-separator {
+        display: none !important; /* Entnimmt das Trenn-Element komplett */
+    }
+
+
+.event {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    /* Flexbox für das interne Layout (Datum links, Details rechts) */
+    display: flex; 
+    gap: 15px;
+    align-items: flex-start;
+    min-width: 0;
+    margin-bottom: 2px; 
+    width: 100%; 
+    box-sizing: border-box;
+    height: auto !important;
+    min-height: 120px; 
+}
+
+/* 2. Container für das Datum / Timeslot (neu hinzugefügt)
+   Basierend auf dem Screenshot ist das Datum links und braucht einen festen Platz.
+   (Die Klasse '.event-timeslot' oder ähnlich wird angenommen) */
+.event-timeslot {
+    flex-shrink: 0; /* Verhindert, dass das Datum schrumpft */
+    width: 100px; /* Gibt dem Datum eine feste Breite */
+    text-align: center;
+    border-right: 1px solid #ddd; /* Optische Trennung zum Inhalt */
+    padding-right: 15px;
+    margin-top: 5px; /* Etwas Platz oben */
+}
+
+.event-date-day {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #D65E1E;
+    line-height: 1;
+}
+
+.event-date-month {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #A04000;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.event-time {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* 3. Inhalts-Container (.event-details) */
+.event-details {
+    flex: 1 1 auto; /* Erlaubt dem Inhalt, den restlichen Platz zu füllen */
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+/* 4. Event-Titel (.event-title)
+   Trennlinie wird jetzt nur unter dem Titel angezeigt */
+.event-title {
+    font-family: Oswald, Arial, sans-serif;
+    margin: 0 0 8px;
+    font-size: 1.4rem; 
+    font-weight: 700;
+}
+
+.event-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.event-title a:hover {
+    color: #A04000; 
+}
+
+.event-title::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #A04000;
+    margin: 8px 0;
+}
+
+/* 5. Event-Beschreibung und Details */
+.event-description {
+    line-height: 1.5;
+    color: #222;
+}
+
+/* 6. "Weiterlesen"-Button (.event-read-more) */
+.event-read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #D65E1E;
+    color: #F5F5F5;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.event-read-more:hover {
+    background-color: #FFC400;
+    color: #A04000;
+}
+
+    .event-location {
+        font-size: 1rem !important; 
+        margin-top: 5px !important;
+        margin-bottom: 10px !important;
+        font-weight: normal !important;
+    }
+
+/* ===================================
+   Events Sidebar Anpassungen
+=================================== */
+
+/* 1. Hauptcontainer der Sidebar (.events-sidebar)
+   Übernimmt das Basis-Styling von .sidebar. */
+.events-sidebar {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    padding: 15px; /* Etwas mehr Padding für besseres Aussehen */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border: 1px solid #A04000;
+}
+
+/* 2. Titel der Sidebar (.events-title)
+   Wird wie die H2-Überschriften im Theme formatiert. */
+.events-sidebar .events-title {
+    font-family: Oswald, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem; /* Passt zur h2-Definition */
+    font-weight: 700;
+    color: #222;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #A04000; /* Trennlinie unter dem Titel */
+}
+
+/* 3. Event-Liste (.events-list)
+   Entfernt Standard-Listen-Styling. */
+.events-sidebar .events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 5. Tages-Überschrift (z.B. "Dienstag, Oktober 21") */
+.events-sidebar .event-day {
+    font-weight: bold;
+    color: #333;
+}
+/* Der erste Tages-Header braucht keine Trennlinie nach oben */
+.events-sidebar .events-list > .event-day:first-of-type {
+    margin-top: 0;
+    border-top: none;
+}
+
+/* 6. Einzelner Event-Eintrag (.event-item)
+   Richtet Zeit und Titel nebeneinander aus. */
+.events-sidebar .event-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 5px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    min-height: 28px;
+    height: auto;
+}
+.events-sidebar .event-item:hover {
+    background-color: rgba(255, 196, 0, 0.3); /* Leichter Hover-Effekt */
+}
+
+/* 7. Zeitangabe */
+.events-sidebar .event-item time {
+    font-weight: bold;
+    color: #D65E1E; /* Akzentfarbe für die Zeit */
+    flex-shrink: 0; /* Verhindert, dass die Zeit umbricht */
+    width: 55px; /* Feste Breite für saubere Ausrichtung */
+}
+
+/* 8. Event-Link */
+.events-sidebar .event-item a {
+    text-decoration: none;
+    color: #222;
+    transition: color 0.2s;
+    flex-grow: 1; /* Nimmt den restlichen Platz ein */
+}
+.events-sidebar .event-item a:hover {
+    color: #A04000; /* Hover-Farbe des Themes */
+}
+
+.events-sidebar .event-item-separator {
+  margin: 4px !important;
+}
+
+/* ===================================
+   Archives Plugin (Sidebar) Styling
+=================================== */
+
+/* 2. Archiv-Liste (ul.archives) */
+.sidebar .archives {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Einzelner Listeneintrag (li) */
+.sidebar .archives li {
+    margin: 0;
+    padding: 0;
+    /* Fügt eine dezente Trennlinie zwischen den Monaten hinzu */
+    border-bottom: 1px dashed #ddd; 
+}
+
+.sidebar .archives li:last-child {
+    border-bottom: none; /* Keine Linie nach dem letzten Element */
+}
+
+/* 4. Der Archiv-Link (a) */
+.sidebar .archives li a {
+    display: flex; /* Für bessere Klickfläche und Ausrichtung */
+    justify-content: space-between; /* Datum links, Zähler (falls vorhanden) rechts */
+    align-items: center;
+    padding: 8px 5px; /* Innenabstand für das Element */
+    text-decoration: none;
+    font-weight: 600;
+    color: #000; /* Standard-Textfarbe (Schwarz) */
+    transition: all 0.2s ease;
+    border-radius: 4px; /* Leichte Rundung für den Hover-Effekt */
+}
+
+/* 5. Hover-Effekt des Links (Angelehnt an die Haupt-Nav-Hover-Farbe) */
+.sidebar .archives li a:hover,
+.sidebar .archives li a:focus {
+    background: rgba(255,196,0,0.3); /* Dezenter Hintergrund-Hover */
+    color: #A04000; /* Textfarbe beim Hover (Braun/Orange) */
+}
+
+/* 6. Text für Datum/Monat */
+.sidebar .archives .archive_date {
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+/* 7. Zähler (Span mit class="label") - falls in der Konfiguration aktiviert */
+.sidebar .archives .label {
+    /* Basierend auf .read-more-btn und Paginierung-Active */
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: #D65E1E; /* Hauptakzentfarbe */
+    color: #F5F5F5;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 10px; /* Abstand zum Datum/Monat */
+}
+
+/* ===================================
+   Mobile Styles (bis 768px)
+=================================== */
+
+/* ========== RESPONSIVE / MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .page-header h1 {
+        margin-left: 10px;
+    
+    }
+
+    .page-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        padding: 0px !important; 
+        margin: 0 !important;
+    }
+
+    /* Header bündig oben, aber unten Abstand */
+    .site-header {
+        margin-top: 0 !important;
+        margin-bottom: 15px;
+    }
+
+    .main-nav {
+        margin-bottom: 15px;
+        border: 0;
+    }
+
+    .site-footer {
+        margin-top: 15px;
+    }
+
+
+    /* Header */
+    .site-header {
+        padding: 10px 10px !important; 
+        width: 100% !important;
+        box-sizing: border-box;
+        border-radius: 0 !important;
+    }
+
+    .site-header .logo-left,
+    .site-header .wappen-right {
+        height: 60px;
+        width: auto;
+    }
+
+    .site-header .header-title,
+    .site-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .site-header .logo-left {
+        margin-left: 10px; /* etwas Luft zwischen Logo & Titel */
+    }
+
+    .site-header .wappen-right {
+        margin-right: 10px;  /* etwas Luft zwischen Titel & Wappen */
+    }
+
+    /* Burger sichtbar */
+    .burger {
+        display: block;
+    }
+
+    /* Navigation: Fullwidth, keine Rundungen */
+    .main-nav {
+        padding: 0 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        box-sizing: border-box;
+        margin: 0 0 15px 0 !important;
+    }
+
+    .main-nav, 
+    .main-nav .menu, 
+    .main-nav li a,
+    .main-nav ul ul,
+    .main-nav ul ul li, 
+    .main-nav ul ul a {
+        border-radius: 0 !important;
+    }
+
+.main-nav .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px; /* fixe Breite fürs Burger-Menü */
+    background: rgba(255,255,255,0.95);
+    flex-direction: column;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); /* <-- nach links raus */
+    z-index: 9999;
+}
+
+.main-nav .menu.open {
+    transform: translateX(0); /* <-- fährt rein */
+}
+
+    .main-nav li {
+        border: none;
+        width: 100%;
+    }
+
+    .main-nav a {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 20px;
+        border-bottom: 1px solid #ddd;
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* Submenüs */
+    .main-nav ul ul {
+        display: none;
+        flex-direction: column;
+        margin-left: 15px;
+        border-left: 2px solid #ddd;
+    }
+
+    .main-nav li.open > ul {
+        display: block;
+    }
+
+    /* Submenü-Indikator sichtbar nur auf Mobile */
+    .submenu-toggle {
+        display: inline-block;
+        margin-left: auto;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Content & Sidebar */
+    .content-wrapper {
+        width: 100%;     
+        max-width: 100%;
+        display: block; 
+    }
+
+    .content-box {
+       margin-bottom: 15px;
+       border-radius: 0px;
+       padding: 10px 20px 10px 0px;
+       margin: 0 !important;
+    }
+
+    .blog-layout .main-content {
+        width: 100%;
+    }
+
+    .post-layout {
+    margin: 10px;
+    }
+
+    .main-content .post .post-content {
+       width: 100%;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+        margin: 10px;
+        padding: 0;
+        /* Wichtig: Auf mobile soll das Grid die volle Breite des Wrappers nutzen */
+        width: 100%; 
+    }
+
+    .posts-grid .post {
+        display: flex; /* Flexbox für Anordnung nebeneinander */
+        flex-direction: row; /* Wichtig: Bild links, Text rechts */
+        align-items: flex-start; 
+        gap: 10px;
+        padding: 15px;
+        width: 100%; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+        background-color: #fff;
+    }
+
+    .posts-grid .post img {
+        width: 100px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .post-content {
+        flex-grow: 1; 
+        flex-shrink: 1;
+        width: auto; /* Erlaubt Flexbox, die Breite zu berechnen */
+        min-width: 0; /* Verhindert Überlaufen bei langen Wörtern */
+        padding: 0;
+    }
+
+    .posts-grid .post-content {
+        /* Wichtig: Nimmt den verbleibenden Platz ein */
+        flex-grow: 1; 
+        width: auto; /* Breite wird durch flex-grow bestimmt */
+        min-width: 0; 
+    }
+
+    .posts-grid .post-content h2,
+    .posts-grid .post-content .post-divider,
+    .posts-grid .post-content p {
+        width: 100%; 
+        margin: 0 0 5px 0; /* Abstände neu definieren */
+    }
+
+    .posts-grid .post-content .post-divider {
+        width: 100%; /* Stellt sicher, dass der Divider volle Breite hat */
+        margin: 5px 0;
+    }
+
+    .posts-grid .post-content h2 {
+        font-size: 1rem;
+        width: 100%; 
+        margin-top: 0.5rem; /* Etwas Abstand nach oben */
+        margin-bottom: 0.2rem;
+        line-height: 1.2;
+    }
+
+    .posts-grid .post-content .post-date {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+
+   .posts-grid .post-content p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+        width: 100%;
+        margin: 0 0 5px 0;
+    } 
+
+    .posts-grid .read-more-btn {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+
+    .post {
+        flex-direction: column;
+        border-radius: 0;
+        padding: 10px;
+        gap: 10px;
+        width: 100%;
+        margin: 0px;
+    }
+
+    .sc-columns {
+        /* Setzt die Spaltenanzahl auf 1, um den horizontalen Überlauf zu verhindern. 
+           !important ist nötig, um den Inline-Style zu überschreiben. */
+        columns: 1 !important;
+        -moz-columns: 1 !important;
+        column-count: 1 !important; 
+        column-gap: 0 !important;
+        
+        /* Stellt sicher, dass das Element die volle Breite respektiert */
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 10px !important; /* Passt das Padding an das mobile Layout an */
+        padding-right: 10px !important;
+    }
+
+
+    .post-content .post img,
+    .page-left .post img,
+     {
+        max-width: 100% !important; /* Verhindert, dass das Bild überläuft */
+        height: auto;
+    }
+
+    .post-content iframe {
+        width: 100% !important; /* Erlaubt dem Bild, die volle Breite des Elternelements zu nutzen */
+        max-width: 100% !important; /* Verhindert, dass das Bild überläuft */
+        height: auto;
+    }
+
+    .page-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+    }
+
+    .page-grid .page-left {
+        width: 100%;
+        padding: 0px; 
+    }
+
+    .page-left,
+    .page-right {
+        grid-column: 1; /* beide nehmen volle Breite */
+        margin: 0px;
+    }
+
+    .page-left .post,
+    .page-right .post{
+        margin:0px;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .sidebar {
+        display: none !important; 
+        flex-basis: 0 !important; 
+        width: 0 !important; 
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Footer */
+    .site-footer {
+        position: relative;
+        bottom: auto;
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 10px 10px !important;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+
+    .site-footer .footer-social {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .site-footer a {
+        margin: 3px 5px 3px 0;
+    }
+
+    /* Suche: rechtsbündig & mittig */
+    .mobile-search-toggle {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        padding: 0 10px;
+    }
+
+    .mobile-search-toggle input {
+        max-width: 150px;
+    }
+
+    .fullwidth-content {
+        /* Soll die volle Breite des page-wrappers ausnutzen */
+        width: 100%;
+        padding: 0px;
+        margin: 10px;
+    }
+
+    .grav-form {
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 0; /* Passend zum mobilen Layout */
+    }
+
+    .grav-form input[type="submit"],
+    .grav-form button[type="submit"] {
+        width: 100%; /* Button über volle Breite auf Mobile */
+        padding: 12px 0;
+        font-size: 1em;
+    }
+
+    .grav-form .buttons {
+        text-align: center; /* Button mittig zentriert */
+    }
+
+
+    .event-article,
+    .event-separator {
+        /* Entfernt Margins und Padding, die den großen vertikalen Abstand verursachen */
+        margin: 10px !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .event-separator {
+        display: none !important; /* Entnimmt das Trenn-Element komplett */
+    }
+
+    .event {
+        /* Zurück auf Zeilen-Layout (nebeneinander) */
+        flex-direction: row !important; 
+        align-items: flex-start !important;
+        
+        /* FIX 1: Gleichmäßige Ränder (10px links/rechts vom Bildschirmrand) */
+        /* Setzt die Box auf 100% minus die Ränder. */
+        width: calc(100% - 20px) !important; 
+        margin-left: 10px !important; 
+        margin-right: 10px !important; 
+        
+        /* FIX 2: Abstand zwischen Events reduziert */
+        margin-bottom: 5px !important; 
+        
+        /* Internes Padding und Gap beibehalten */
+        padding: 10px 15px !important; 
+        gap: 10px !important; 
+        
+        border-radius: 0 !important; 
+        height: auto !important; 
+        min-height: auto !important; 
+        box-sizing: border-box !important;
+        display: flex !important; 
+    }
+    
+    /* Datum/Timeslot (Linke Spalte) - Beibehalten */
+    .event-timeslot {
+        flex-shrink: 0 !important; 
+        width: 70px !important; 
+        max-width: 70px !important; 
+        min-width: 70px !important; 
+
+        text-align: center !important;
+        border-right: none !important; 
+        padding-right: 0 !important;
+        margin-bottom: 0 !important; 
+        margin-top: 5px !important; 
+        
+        display: block !important;
+    }
+    
+    .event-date-day {
+        font-size: 1.6rem !important; 
+        line-height: 1 !important;
+        display: block !important;
+    }
+
+    .event-date-month {
+        font-size: 0.8rem !important; 
+        line-height: 1 !important;
+        display: block !important;
+        text-transform: uppercase !important;
+    }
+    
+    .event-time {
+        display: block !important; 
+        font-size: 0.75em !important; 
+        color: #555 !important;
+        margin-top: 2px !important; 
+    }
+    
+    /* Inhalts-Container (Rechte Spalte) - Beibehalten */
+    .event-details {
+        flex: 1 1 auto !important; 
+        min-width: 0 !important; 
+        width: auto !important;
+        padding-left: 0 !important;
+        margin-top: 0 !important;
+        
+        overflow-wrap: break-word !important; 
+        word-break: break-word !important;
+    }
+    
+    .event-title {
+        font-size: 1.1rem !important; 
+        margin: 0 0 5px 0 !important;
+        line-height: 1.2 !important;
+    }
+    
+    .event-title::after {
+        margin: 5px 0 !important;
+    }
+    
+    .event-location {
+        font-size: 0.9rem !important; 
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        font-weight: normal !important;
+    }
+
+    /* Event-Beschreibung/Zusammenfassung (wird größer) - Beibehalten */
+    .event-summary p {
+        font-size: 0.95rem !important; 
+        line-height: 1.4 !important;
+        margin: 0 0 5px 0 !important;
+        
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* "More information" Link (wird größer) - Beibehalten */
+    .event-summary .read-more,
+    .event-summary .read-more a {
+        font-size: 0.95rem !important; 
+        display: inline !important; 
+    }
+
+    /* 1. Hauptcontainer: Definiert den Rand zum Bildschirmrand */
+    .event-container {
+        display: flex !important;
+        flex-direction: column !important; 
+        width: 100% !important;
+        
+        /* FIX: Definiert den Abstand zum linken/rechten Fensterrand (z.B. 10px) */
+        padding: 0 10px !important; 
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Event-Listing (Hauptinhalt) */
+    .event-listing {
+        width: 100% !important; 
+        margin-bottom: 10px !important; /* Etwas weniger Abstand zur Sidebar */
+        padding: 0 !important;
+    }
+
+    /* 3. Events Sidebar (Wird unter das Event verschoben) */
+    .events-sidebar {
+        width: 100% !important; 
+        
+        /* FIX: Hintergrundfarbe wiederherstellen (weiß, oder die Farbe deines Themes) */
+        background-color: white !important; /* Dies sollte die weiße Box wiederherstellen */
+        
+        padding: 10px !important; 
+        margin: 0 10px !important;
+        border-radius: 0 !important; 
+        box-shadow: none !important; 
+    }
+    
+    /* 4. Titel der Sidebar (Anstehende Termine) anpassen */
+    .events-sidebar .events-title {
+        font-size: 1.3rem !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        padding-left: 0 !important;
+    }
+    
+    /* 5. Liste der anstehenden Termine */
+    .events-sidebar .events-list {
+        padding-left: 0 !important; 
+        list-style: none !important;
+    }
+
+    .events-sidebar .event-item {
+        margin-bottom: 5px !important;
+        padding: 5px 0 !important;
+        font-size: 0.95rem !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+    
+    .events-sidebar .event-item-separator {
+        display: none !important; 
+    }
+    
+    .events-sidebar .event-day {
+        font-size: 1rem !important;
+        font-weight: bold !important;
+        margin-top: 15px !important;
+        margin-bottom: 5px !important;
+        color: #A04000 !important; 
+    }
+}
+
+
+
+/* ===================================
+   Desktop-Only Styles (ab 769px)
+=================================== */
+@media (min-width: 769px) {
+    .submenu-toggle {
+        display: none !important;
+    }
+}
+
+

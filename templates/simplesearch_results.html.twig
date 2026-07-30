@@ -1,0 +1,67 @@
+{% extends 'partials/simplesearch_base.html.twig' %}
+
+{% block content %}
+<div class="content-wrapper blog-layout">
+  <div class="main-content">
+
+    <div class="content-box simplesearch">
+        <h1 class="search-header">{{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS"|t }}</h1>
+
+        <div class="simplesearch-form-container">
+            {% include 'partials/simplesearch_searchbox.html.twig' %}
+        </div>
+
+        <p class="search-summary">
+            {% if query %}
+                {% set count = search_results ? search_results.count : 0 %}
+                {% if count is same as( 1 ) %}
+                    {{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS_SUMMARY_SINGULAR"|t(query|e)|raw }}
+                {% else %}
+                    {{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS_SUMMARY_PLURAL"|t(query|e, count)|raw }}
+                {% endif %}
+            {% endif %}
+        </p>
+
+        <div class="posts-grid" id="search-results-grid">
+            {% for post in search_results %}
+                <article class="post search-result-post">
+
+                    {% if post.media.images|length > 0 %}
+                        {% set thumb = post.media.images|first %}
+                        <img src="{{ thumb.resize(300).url }}" alt="{{ post.title|e }}" width="150" loading="lazy">
+                    {% endif %}
+
+                    <div class="post-content">
+                        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+                        <div class="post-divider"></div>
+
+                        {% if post.date %}
+                            <p class="post-date">{{ post.date|date("d. F Y") }}</p>
+                        {% endif %}
+
+                        {% if post.summary is not empty %}
+                            <p>{{ post.summary|striptags|trim }}</p>
+                        {% else %}
+                            <p>{{ post.content|striptags|trim|slice(0,100) ~ '…' }}</p>
+                        {% endif %}
+
+                        <a href="{{ post.url }}" class="read-more-btn">{{ theme.posts.read_more_label|default('Weiterlesen') }}</a>
+                    </div>
+                </article>
+            {% else %}
+                <p>{{ "PLUGIN_SIMPLESEARCH.NO_RESULTS"|t }}</p>
+            {% endfor %}
+
+            {% if config.plugins.pagination.enabled and collection is defined and collection.params.pagination %}
+                {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+            {% endif %}
+
+        </div>
+    </div>
+  </div>
+
+  {% include 'partials/sidebar.html.twig' %}
+
+</div>
+{% endblock %}

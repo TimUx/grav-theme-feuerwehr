@@ -1,0 +1,47 @@
+title: Blog
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        blog:
+          type: tab
+          title: Blog
+          fields:
+            header.content.items:
+              type: textarea
+              yaml: true
+              label: Collection-Items
+              default: '@self.children'
+              help: z.B. '@self.children' oder '@page.descendants'
+            header.content.limit:
+              type: number
+              label: Limit
+              default: 8
+              help: Beiträge pro Seite (mit Pagination-Plugin)
+            header.content.order.by:
+              type: select
+              label: Sortierung
+              default: date
+              options:
+                date: Datum
+                title: Titel
+                folder: Ordner
+            header.content.order.dir:
+              type: select
+              label: Richtung
+              default: desc
+              options:
+                desc: Absteigend
+                asc: Aufsteigend
+            header.content.pagination:
+              type: toggle
+              label: Pagination
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED

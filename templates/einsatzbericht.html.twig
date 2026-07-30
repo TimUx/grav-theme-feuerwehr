@@ -1,0 +1,52 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+
+<div class="content-wrapper post-layout">
+  <div class="main-content">
+    <article class="post">
+      <div class="post-content">
+
+{% set like_id = '/' ~ page.route %}
+
+<div class="post-header-with-likes">
+    <h1>{{ page.title }}</h1>
+    {% include 'partials/likes_button.html.twig' %}
+</div>
+        <div class="post-divider"></div>
+        <p class="post-date">{{ page.date|date("d. F Y") }}</p>
+
+                <div class="einsatz-meta">
+                    <p>📟 {{ page.header.callsign }}</p>
+                    <p>📅 {{ page.header.date_time }}</p>
+                    <p>🧭 {{ page.header.location }}</p>
+                    {% if page.header.vehicles %}
+                        <p>🚒
+                            {% for vehicle in page.header.vehicles %}
+                                {{ vehicle.vehicle }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                    {% if page.header.rescue_service %}
+                        <p>🚑 {{ page.header.rescue_service }}</p>
+                    {% endif %}
+                    {% if page.header.helicopter %}
+                        <p>🚁 {{ page.header.helicopter }}</p>
+                    {% endif %}
+                    {% if page.header.police %}
+                        <p>🚓 {{ page.header.police }}</p>
+                    {% endif %}
+                </div>
+                <hr>
+                <div class="einsatz-text">
+        {{ page.content|raw }}
+        <hr>
+        {% include 'partials/media_gallery.html.twig' %}
+      </div>
+                </div>
+
+        </article>
+    </div>
+
+    {% include 'partials/sidebar.html.twig' %}
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+name: Feuerwehr Willingshausen
+slug: feuerwehr
+type: theme
+version: 1.0.1
+description: "Grav Theme für die Freiwillige Feuerwehr Willingshausen"
+icon: fire
+author:
+  name: Timo Braun
+  email: t.braun@feuerwehr-willingshausen.de
+  url: https://www.feuerwehr-willingshausen.de
+homepage: https://github.com/TimUx/grav-theme-feuerwehr
+demo: https://www.feuerwehr-willingshausen.de
+keywords: feuerwehr, theme, fire, responsive, html5, css3, willingshausen
+bugs: https://github.com/TimUx/grav-theme-feuerwehr/issues
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    posts.read_more_label:
+      type: text
+      label: "\"Weiterlesen\"-Label"
+      default: 'Weiterlesen'
+
+    sidebar.show_search:
+      type: toggle
+      label: Suche in Sidebar
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    sidebar.show_social:
+      type: toggle
+      label: Social Links in Sidebar
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    social.facebook:
+      type: text
+      label: Facebook URL
+      placeholder: 'https://www.facebook.com/...'
+
+    social.instagram:
+      type: text
+      label: Instagram URL
+      placeholder: 'https://www.instagram.com/...'
+
+    social.whatsapp:
+      type: text
+      label: WhatsApp Channel URL
+      placeholder: 'https://whatsapp.com/channel/...'
+
+    social.email:
+      type: text
+      label: E-Mail
+      placeholder: 'email@example.com'

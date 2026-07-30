@@ -1,0 +1,51 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive ?: theme_config.default_lang|default('de'))|e }}">
+<head>
+  {% block head %}
+    <meta charset="utf-8" />
+    <title>{% if page.title and page.title != site.title %}{{ page.title|e }} | {{ site.title|e }}{% else %}{{ site.title|e }}{% endif %}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+      {% do assets.addCss('theme://css/fontawesome-subset.min.css', 100) %}
+      {% do assets.addCss('theme://css/custom.min.css', 99) %}
+    {% endblock %}
+
+    {% block javascripts %}
+      {% do assets.addJs('theme://js/main.js', { group: 'bottom' }) %}
+    {% endblock %}
+
+    {% block assets deferred %}
+      {{ assets.css()|raw }}
+      {{ assets.js()|raw }}
+    {% endblock %}
+  {% endblock head %}
+  <script>
+    window.GRAV = window.GRAV || {};
+    window.GRAV.baseUrl = {{ base_url_relative|json_encode|raw }};
+  </script>
+</head>
+<body>
+  <div class="background-container" aria-hidden="true"></div>
+
+  <div class="page-wrapper" role="document">
+    {% include 'partials/header.html.twig' %}
+    {% include 'partials/nav.html.twig' %}
+
+    <main class="content-box" role="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include 'partials/footer.html.twig' %}
+  </div>
+
+  {% block bottom %}{{ assets.js('bottom')|raw }}{% endblock %}
+</body>
+</html>

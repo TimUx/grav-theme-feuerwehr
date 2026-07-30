@@ -1,0 +1,4 @@
+title: Formular
+'@extends':
+  type: default
+  context: blueprints://pages

@@ -1,0 +1,27 @@
+de:
+  THEME_FEUERWEHR:
+    SEARCH: "Suche"
+    SOCIAL: "Social Media"
+    ARCHIVE: "Archiv"
+    NAV_MAIN: "Hauptnavigation"
+    NAV_TOGGLE: "Menü öffnen"
+    LIKE: "Gefällt mir"
+    ALT_MOTTO: "Retten – Bergen – Löschen – Schützen"
+    ALT_CREST: "Wappen"
+    ERROR_TITLE: "Seite nicht gefunden"
+    ERROR_TEXT: "Die angeforderte Seite konnte nicht gefunden werden."
+    ERROR_HOME: "Zur Startseite"
+
+en:
+  THEME_FEUERWEHR:
+    SEARCH: "Search"
+    SOCIAL: "Social Media"
+    ARCHIVE: "Archive"
+    NAV_MAIN: "Main navigation"
+    NAV_TOGGLE: "Toggle menu"
+    LIKE: "Like"
+    ALT_MOTTO: "Rescue – Salvage – Extinguish – Protect"
+    ALT_CREST: "Coat of arms"
+    ERROR_TITLE: "Page not found"
+    ERROR_TEXT: "The requested page could not be found."
+    ERROR_HOME: "Back to home"

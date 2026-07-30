@@ -1,0 +1,61 @@
+title: Einsatzbericht
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            header.title:
+              replace@: true
+              type: text
+              label: PLUGIN_ADMIN.TITLE
+
+            header.callsign:
+              type: text
+              label: Einsatz-Stichwort
+              help: z.B. H1 KLEMM Y – Verkehrsunfall mit eingeklemmten Personen
+              validate:
+                required: true
+
+            header.date_time:
+              type: text
+              label: Datum & Uhrzeit
+              help: z.B. 01.08.2025 – 17:49 Uhr
+              validate:
+                required: true
+
+            header.location:
+              type: text
+              label: Einsatzort
+              help: z.B. Willingshausen – Wasenberg
+              validate:
+                required: true
+
+            header.vehicles:
+              type: list
+              label: Eingesetzte Fahrzeuge
+              fields:
+                .vehicle:
+                  type: text
+                  label: Fahrzeug
+                  placeholder: z.B. TSF-W 8/48
+
+            header.rescue_service:
+              type: text
+              label: Rettungsdienst
+              help: z.B. 2x RTW, NEF
+
+            header.helicopter:
+              type: text
+              label: Hubschrauber
+              help: z.B. Christoph 7
+
+            header.police:
+              type: text
+              label: Polizei
+              help: z.B. Polizei Marburg
+

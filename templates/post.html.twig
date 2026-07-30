@@ -1,0 +1,25 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+
+<div class="content-wrapper post-layout">
+  <div class="main-content">
+    <article class="post">
+      <div class="post-content">
+
+{% set like_id = '/' ~ page.route %}
+
+<div class="post-header-with-likes">
+    <h2>{{ page.title }}</h2>
+    {% include 'partials/likes_button.html.twig' %}
+</div>
+
+        <div class="post-divider"></div>
+        <p class="post-date">{{ page.date|date("d. F Y") }}</p>
+        {{ page.content|raw }}
+        {% include 'partials/media_gallery.html.twig' %}
+      </div>
+    </article>
+  </div>
+  {% include 'partials/sidebar.html.twig' %}
+</div>
+{% endblock %}

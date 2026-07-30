@@ -1,0 +1,51 @@
+<nav class="main-nav" aria-label="{{ 'THEME_FEUERWEHR.NAV_MAIN'|t }}">
+    <button type="button" class="burger" id="burger-toggle" aria-controls="main-menu" aria-expanded="false" aria-label="{{ 'THEME_FEUERWEHR.NAV_TOGGLE'|t }}">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <ul class="menu" id="main-menu">
+        {% for page in pages.children %}
+          {% if page.slug != 'footer' and page.slug != 'sidebar' and page.slug != 'ical' %}
+            <li{% if page.children and page.slug != 'blog' %} class="has-submenu"{% endif %}>
+                <a href="{{ page.url }}">
+                    {{ page.menu }}
+                    {% if page.children and page.slug != 'blog' %}
+                        <span class="submenu-toggle" aria-hidden="true">▸</span>
+                    {% endif %}
+                </a>
+
+                {% if page.children and page.slug != 'blog' %}
+                    <ul>
+                        {% for child in page.children %}
+                            <li{% if child.children %} class="has-submenu"{% endif %}>
+                                <a href="{{ child.url }}">
+                                    {{ child.menu }}
+                                    {% if child.children %}
+                                        <span class="submenu-toggle" aria-hidden="true">▸</span>
+                                    {% endif %}
+                                </a>
+
+                                {% if child.children %}
+                                    <ul>
+                                        {% for grandchild in child.children %}
+                                            <li>
+                                                <a href="{{ grandchild.url }}">{{ grandchild.menu }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% if theme.sidebar.show_search|default(true) %}
+    <div class="mobile-search-toggle sidebar-search">
+        {% include 'partials/simplesearch_searchbox.html.twig' ignore missing %}
+    </div>
+    {% endif %}
+</nav>

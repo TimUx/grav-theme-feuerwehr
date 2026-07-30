@@ -1,0 +1,11 @@
+{# Soft-guarded likes button. Expects: like_id #}
+{% if config.plugins.likes is defined and config.plugins.likes.enabled %}
+    {% set likes = likes_count(like_id) %}
+    {% set alreadyLiked = has_liked(like_id) %}
+    <button class="like-button" data-id="{{ like_id }}" type="button" aria-label="{{ 'THEME_FEUERWEHR.LIKE'|t }}">
+        <span class="heart {% if alreadyLiked %}liked{% endif %}">
+            <i class="{% if alreadyLiked %}fas{% else %}far{% endif %} fa-heart" aria-hidden="true"></i>
+        </span>
+        <span class="like-count">{{ likes|default(0) }}</span>
+    </button>
+{% endif %}

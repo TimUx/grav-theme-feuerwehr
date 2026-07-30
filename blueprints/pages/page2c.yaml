@@ -1,0 +1,27 @@
+title: Zweispalten-Seite
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: Inhalt
+
+          fields:
+            header.title:
+              type: text
+              label: Titel
+              autofocus: true
+              style: vertical
+
+        options:
+          type: tab
+          title: Optionen
+

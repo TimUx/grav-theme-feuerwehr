@@ -1,0 +1,30 @@
+<footer class="site-footer">
+    <div>
+        {% set footer_parent = page.find('/footer') %}
+
+        {% if footer_parent %}
+            {% for footer_page in footer_parent.children %}
+                {% if footer_page.routable and (footer_page.menu or footer_page.title) %}
+                    <a href="{{ footer_page.url }}">{{ footer_page.menu|default(footer_page.title) }}</a>{% if not loop.last %} |{% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% set social = theme.social|default({}) %}
+    {% if social.facebook or social.instagram or social.whatsapp or social.email %}
+    <div class="footer-social">
+        {% if social.facebook %}
+        <a href="{{ social.facebook|e }}" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if social.instagram %}
+        <a href="{{ social.instagram|e }}" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if social.whatsapp %}
+        <a href="{{ social.whatsapp|e }}" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if social.email %}
+        <a href="mailto:{{ social.email|e }}" aria-label="E-Mail"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        {% endif %}
+    </div>
+    {% endif %}
+</footer>

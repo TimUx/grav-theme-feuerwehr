@@ -1,0 +1,15 @@
+{
+   "project":"grav-theme-feuerwehr",
+   "platforms":{
+      "grav":{
+         "nodes":{
+            "theme":[
+               {
+                  "source":"/",
+                  "destination":"/user/themes/feuerwehr"
+               }
+            ]
+         }
+      }
+   }
+}
