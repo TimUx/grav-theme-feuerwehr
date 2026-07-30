@@ -57,7 +57,7 @@ Da GPM noch nicht verfügbar ist, erfolgt das Update manuell:
 * [SimpleSearch](https://github.com/getgrav/grav-plugin-simplesearch) – Suche in Sidebar/Navigation
 * [Pagination](https://github.com/getgrav/grav-plugin-pagination) – Blog-Seiten
 * [Archives](https://github.com/getgrav/grav-plugin-archives) – Archiv in der Sidebar
-* [PhotoSwipe](https://github.com/getgrav/grav-plugin-photoswipe) – Bildergalerien
+* [PhotoSwipe](https://github.com/Karmalakas/grav-plugin-photoswipe) – Bildergalerien (Lightbox). Das Theme liefert die PhotoSwipe-Kernbibliothek mit; das Plugin muss aktiviert sein.
 * [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) – Zweispalten-Layout (`page2c`)
 * Likes-Plugin (falls verwendet) – Like-Button auf Beiträgen/Einsatzberichten
 

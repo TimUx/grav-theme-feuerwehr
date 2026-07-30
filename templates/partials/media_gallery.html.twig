@@ -3,6 +3,12 @@
 {% set thumb_w = thumb_w|default(200) %}
 {% set thumb_h = thumb_h|default(300) %}
 {% if page.media.images|length > 0 %}
+  {# PhotoSwipe-Kernbibliothek (Plugin-Wrapper braucht PhotoSwipe + PhotoSwipeUI_Default) #}
+  {% do assets.addCss('theme://css/photoswipe/photoswipe.min.css', 60) %}
+  {% do assets.addCss('theme://css/photoswipe/default-skin/default-skin.min.css', 59) %}
+  {% do assets.addJs('theme://js/photoswipe/photoswipe.min.js', 60) %}
+  {% do assets.addJs('theme://js/photoswipe/photoswipe-ui-default.min.js', 59) %}
+
   {{ photoswipe(gallery_id, 'a') }}
   <div id="{{ gallery_id }}">
      {% for item in page.media.images %}

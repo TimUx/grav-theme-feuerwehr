@@ -1,3 +1,9 @@
+# v1.0.3
+## 07/30/2026
+
+1. [](#bugfix)
+    * PhotoSwipe-Lightbox: Kernbibliothek lokal im Theme bereitgestellt (fehlende Plugin-`node_modules` auf dem Server)
+
 # v1.0.2
 ## 07/30/2026
 
