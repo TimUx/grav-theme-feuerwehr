@@ -4,11 +4,13 @@
 
 Custom-[Grav](https://getgrav.org)-Theme für die Freiwillige Feuerwehr Willingshausen.
 
+**Kompatibilität:** Grav **1.7** und Grav **2.0** (explizit in `blueprints.yaml` deklariert).
+
 > **Hinweis:** Das Theme ist derzeit **nicht** im offiziellen Grav-Repository gelistet. Eine Installation über GPM (`bin/gpm install`) oder den Admin-Theme-Browser ist daher **noch nicht möglich**. Bitte manuell über GitHub installieren (siehe unten).
 
 # Installation
 
-Voraussetzung: [Grav](https://github.com/getgrav/grav) `>= 1.7.0`.
+Voraussetzung: [Grav](https://github.com/getgrav/grav) `>= 1.7.0` (inkl. Grav 2.0).
 
 ## Manuelle Installation (aktuell einzige Möglichkeit)
 
