@@ -1,3 +1,12 @@
+# v1.1.0
+## 07/31/2026
+
+1. [](#new)
+    * Explizite Grav-Kompatibilität für **1.7** und **2.0** in `blueprints.yaml` (`compatibility.grav`)
+2. [](#improved)
+    * Theme-PHP-Klasse mit typisierten Event-Hooks für PHP 8.x / Grav 2.0 vorbereitet
+    * README um Dual-Support Grav 1.7 / 2.0 ergänzt
+
 # v1.0.3
 ## 07/30/2026
 
